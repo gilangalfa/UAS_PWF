@@ -27,14 +27,18 @@ return new class extends Migration
 
             // foreign keys
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('event_categories');
             $table->unsignedBigInteger('status_id');
-            $table->foreign('status_id')->references('id')->on('event_status');
             $table->unsignedBigInteger('speaker_id');
-            $table->foreign('speaker_id')->references('id')->on('speakers');
 
             $table->timestamps();
         });
+
+        // Schema::table('workshops', function (Blueprint $table) {
+       
+        //     $table->foreign('category_id')->references('id')->on('event_categories')->onDelete('cascade')->onUpdate('cascade');
+        //     $table->foreign('status_id')->references('id')->on('event_status')->onDelete('cascade')->onUpdate('cascade'); 
+        //     $table->foreign('speaker_id')->references('id')->on('speakers')->onDelete('cascade')->onUpdate('cascade');
+        // });
     }
 
     /**

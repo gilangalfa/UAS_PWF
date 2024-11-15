@@ -27,17 +27,13 @@ return new class extends Migration
             $table->string('online_link');
             $table->string('ticket_price');
 
-            // foreign keys
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('event_categories');
-            $table->unsignedBigInteger('status_id');
-            $table->foreign('status_id')->references('id')->on('event_status');
-            $table->unsignedBigInteger('speaker_id');
-            $table->foreign('speaker_id')->references('id')->on('speakers');
+            
 
             $table->timestamps();
 
         });
+
+       
     }
 
     /**
@@ -47,4 +43,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('seminars');
     }
+
+    
 };

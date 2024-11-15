@@ -16,13 +16,18 @@ return new class extends Migration
             $table->string('requirement');
 
             $table->unsignedBigInteger('seminar_id');
-            $table->foreign('seminar_id')->references('id')->on('seminars');
-
             $table->unsignedBigInteger('workshop_id');
-            $table->foreign('workshop_id')->references('id')->on('workshops');
+
 
             $table->timestamps();
         });
+
+        
+        // Schema::table('participant_requirements', function (Blueprint $table) {
+
+        //     $table->foreign('seminar_id')->references('id')->on('seminars')->onDelete('cascade')->onUpdate('cascade');
+        //     $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade')->onUpdate('cascade');
+        // });
     }
 
     /**

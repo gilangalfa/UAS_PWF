@@ -10,16 +10,19 @@ class Registration extends Model
 {
     //
     protected $table = 'registrations';
-    protected $fillable = ['event_id', 'participant_id'];
-    protected $primaryKey = 'registration_id';
 
-    public function events(): BelongsTo
+    public function seminar(): BelongsTo
     {
-        return $this->belongsTo(Event::class, 'event_id');
+        return $this->belongsTo(Seminar::class);
     }
 
-    public function participants(): BelongsTo
+    public function workshop(): BelongsTo
     {
-        return $this->belongsTo(Participant::class, 'participant_id');
+        return $this->belongsTo(Workshop::class);
+    }
+
+    public function participant(): BelongsTo
+    {
+        return $this->belongsTo(Participant::class);
     }
 }

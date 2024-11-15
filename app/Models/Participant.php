@@ -10,11 +10,11 @@ class Participant extends Model
 {
     //
     protected $table = 'participants';
-    protected $fillable = ['name', 'email', 'phone_number'];
-    protected $primaryKey = 'participant_id';
+    // protected $fillable = ['name', 'email', 'phone_number'];
+    // protected $primaryKey = 'participant_id';
 
-    public function registrations(): HasMany
+    public function registration(): HasOne
     {
-        return $this->hasMany(Registration::class, 'participant_id');
+        return $this->hasOne(Registration::class);
     }
 }

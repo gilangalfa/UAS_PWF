@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('bio');
             $table->string('expertise');
             $table->string('contact_email');
-            $table->number('contact_phone');
+            $table->integer('contact_phone');
             $table->timestamps();
         });
     }
