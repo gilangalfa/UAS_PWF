@@ -22,12 +22,10 @@ return new class extends Migration
             $table->date('held_date');
 
             // optional values
-            $table->string('venue');
-            $table->string('online_platform');
-            $table->string('online_link');
-            $table->string('ticket_price');
-
-            
+            $table->string('venue')->nullable();
+            $table->string('online_platform')->nullable();
+            $table->string('online_link')->nullable();
+            $table->string('ticket_price')->nullable();
 
             $table->timestamps();
 

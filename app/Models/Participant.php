@@ -10,7 +10,13 @@ class Participant extends Model
 {
     //
     protected $table = 'participants';
-    // protected $fillable = ['name', 'email', 'phone_number'];
+    protected $fillable = [
+        'name',
+        'location',
+        'educational_level',
+        'email', 
+        'phone_number',
+    ];
     // protected $primaryKey = 'participant_id';
 
     public function registration(): HasOne

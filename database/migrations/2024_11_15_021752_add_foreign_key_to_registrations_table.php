@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('registrations', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('seminar_id');     
-            $table->unsignedBigInteger('workshop_id');
+            $table->unsignedBigInteger('seminar_id')->nullable();     
+            $table->unsignedBigInteger('workshop_id')->nullable();
             $table->unsignedBigInteger('participant_id');
             $table->foreign('seminar_id')->references('id')->on('seminars');
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade')->onUpdate('cascade');

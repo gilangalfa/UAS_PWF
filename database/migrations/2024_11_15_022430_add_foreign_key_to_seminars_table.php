@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::table('seminars', function (Blueprint $table) {
             //
             // foreign keys
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('status_id');
-            $table->unsignedBigInteger('speaker_id');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('status_id')->nullable();
+            $table->unsignedBigInteger('speaker_id')->nullable();
             $table->foreign('category_id')->references('id')->on('event_categories')->onDelete('cascade')->onUpdate('cascade');
             
             $table->foreign('status_id')->references('id')->on('event_statuses')->onDelete('cascade')->onUpdate('cascade');

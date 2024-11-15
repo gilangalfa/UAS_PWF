@@ -15,10 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('requirement');
 
-            $table->unsignedBigInteger('seminar_id');
-            $table->unsignedBigInteger('workshop_id');
-
-
             $table->timestamps();
         });
 

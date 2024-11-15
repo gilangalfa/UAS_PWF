@@ -12,8 +12,6 @@ class DashboardController extends Controller
     {
         $data = Event::latest();
 
-        
-
         if (request('search')) {
             $data->where('event_name', request('search'));
         }
