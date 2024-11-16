@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +14,7 @@ class Workshop extends Model
     protected $table = 'workshops';
     protected $fillable = [
     'name', 
+    'slug', 
     'description', 
     'max_participants',
     'current_participants',

@@ -16,6 +16,7 @@ return new class extends Migration
             // required values
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->string('description');
             $table->integer('max_participants');
             $table->integer('current_participants');

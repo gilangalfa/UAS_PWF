@@ -21,7 +21,7 @@ class SeminarController extends Controller
 
 
 
-        return view('guest.seminars', ['seminars' => $seminars]);
+        return view('guest.seminars', ['title' => 'Admin Dashboard', 'seminars'=>$seminars]);
     }
 
     /**
@@ -46,6 +46,7 @@ class SeminarController extends Controller
     public function show(Seminar $seminar)
     {
         //
+        return view('guest.detail_seminar', compact('seminar'));
     }
 
     /**

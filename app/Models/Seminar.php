@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +16,7 @@ class Seminar extends Model
     protected $table = 'seminars';
     protected $fillable = [
     'name', 
+    'slug', 
     'description', 
     'max_participants',
     'current_participants',

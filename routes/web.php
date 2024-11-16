@@ -26,5 +26,6 @@ use App\Http\Controllers\WorkshopController;
 
 // guest views
 Route::get('/', [SeminarController::class, 'index']);
+Route::get('/seminar/{seminar}', [SeminarController::class, 'show']);
 Route::get('/workshops', [WorkshopController::class, 'index']);
 // Route::get('/my_page', [MyPlaceController::class,'index']);
