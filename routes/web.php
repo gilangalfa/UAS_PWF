@@ -6,26 +6,38 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\SeminarController;
 use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 
 
-// use App\Http\Controllers\MyPlaceController;
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->middleware(['auth', 'verified'])->name('admin');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 
-// Route::get('/', [DashboardController::class, 'index'])->name('events_view'); //dashboard daftar event
-
-// Route::get('/event-detail/{event_id}', [EventController::class, 'index'])->name('event_detail'); //laman rincian event
-
-// Route::get('/event-form', [EventController::class, 'create'])->name('event_form'); // menampilkan halaman form untuk menambahkan event
-// Route::post('/event-form', [EventController::class, 'store'])->name('add_event'); // menambahkan event
-// Route::get('/update-event-form/{event_id}', [EventController::class, 'edit'])->name('update_event_form'); // menampilkan halaman form untuk mengedit event
-// Route::put('/update-event/{event_id}', [EventController::class, 'update'])->name('update_event'); // mengedit event
-// Route::delete('/{event_id}', [EventController::class, 'destroy'])->name('delete_event'); // menghapus event
-
-// Route::get('/participant-form/{event_id}', [ParticipantController::class, 'create'])->name('participant_form'); // menampilkan halaman form untuk participant
-// Route::post('/participant-form/{event_id}', [ParticipantController::class, 'store'])->name('add_participant'); // menambahkan participant
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // guest views
 Route::get('/', [SeminarController::class, 'index']);
-Route::get('/seminar/{seminar}', [SeminarController::class, 'show']);
 Route::get('/workshops', [WorkshopController::class, 'index']);
+Route::get('/seminar/{seminar}', [SeminarController::class, 'show']);
+Route::get('/workshop/{workshop}', [WorkshopController::class, 'show']);
+
+Route::get('/seminar/{seminar}/registration', [SeminarController::class, 'create']);
+Route::post('/seminar/{seminar}/registration', [SeminarController::class, 'store']);
+Route::get('/workshop/{workshop}/registration', [WorkshopController::class, 'create']);
+Route::post('/workshop/{workshop}/registration', [WorkshopController::class, 'store']);
+
+
 // Route::get('/my_page', [MyPlaceController::class,'index']);

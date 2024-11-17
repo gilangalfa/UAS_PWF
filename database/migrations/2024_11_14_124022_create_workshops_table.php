@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('description');
             $table->integer('max_participants');
             $table->integer('current_participants');
-            $table->date('held_date');
+            $table->date('open_until');
+            $table->datetime('start_time');
+            $table->datetime('end_time');
 
             // optional values
             $table->string('venue')->nullable();

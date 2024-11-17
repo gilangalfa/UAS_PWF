@@ -18,7 +18,9 @@ class Workshop extends Model
     'description', 
     'max_participants',
     'current_participants',
-    'held_date',
+    'open_until',
+    'start_time',
+    'end_time',
     'venue',
     'ticket_price',
     ];

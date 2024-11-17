@@ -1,6 +1,6 @@
 <div class="min-h-[6rem] border-b-[1px] border-black bg-[#EAD8B1]  flex justify-center gap-80 items-center flex-initial">
      
-    <h1 class="text-5xl font-semibold"></h1>
+    <h1 class="text-3xl font-semibold">Seminar dan Workshop</h1>
     <section class="flex justify-center items-center">
 
         <form action="" class=" flex justify-start">

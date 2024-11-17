@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('participant_requirements', function (Blueprint $table) {
             $table->id();
-            $table->string('requirement');
+            $table->string('name');
 
             $table->timestamps();
         });

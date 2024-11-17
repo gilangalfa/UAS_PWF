@@ -12,6 +12,7 @@ class Registration extends Model
     use HasFactory;
     //
     protected $table = 'registrations';
+    protected $fillable = ['seminar_id', 'workshop_id', 'participant_id'];
 
     public function seminar(): BelongsTo
     {

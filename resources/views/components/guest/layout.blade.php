@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en" class="h-full bg-gray-100 ">
 <head>
@@ -18,17 +20,15 @@
     </header>
 
 
-    <section class="flex justify-between flex-auto ">
+    <section class="flex justify-between flex-auto bg-white ">
 
         <!-- Sidebar -->
         <aside>
             <x-guest.sidebar></x-sidebar>
         </aside>
 
-        <main class="flex justify-center p-8 gap-8 flex-wrap bg-white w-full ">    
-
-          {{$slot}}
-
+        <main class="w-full" >    
+            {{$slot}}
         </main>
 
     </section>

@@ -2,16 +2,39 @@
     <section class="px-12">
 
                 <section class="my-14">
-                    <h1 class="text-4xl font-normal">By :</h1>
+                    <h1 class="text-4xl font-normal">By : </h1>
                 </section>
 
                 <section class="flex flex-col gap-4">
+
+                    
                     
                     <a href="{{ url('/') }}"><h3 class="border-y-[1px] border-[#6A9AB0] py-4 w-[12rem] text-2xl font-normal hover:px-2 transition-all">Seminar</h3></a>
                     
                     <a href="{{ url('workshops/') }}"><h3 class="border-b-[1px] border-[#6A9AB0] pb-4 w-[12rem] text-2xl font-normal hover:px-2 transition-all">Workshop</h3></a>
-                
-                    <a href=""><h3 class="border-b-[1px] border-[#6A9AB0] pb-8 w-[12rem] text-lg font-normal my-4 hover:px-2 transition-all">Log In</h3></a>
+
+                    @if (Route::has('login'))
+                            
+                            @auth
+                                <a
+                                    href="{{ route('admin') }}"
+                                    class="border-b-[1px] border-[#6A9AB0] pb-8 w-[12rem] text-lg font-normal my-4 hover:px-2 transition-all">
+                                    Admin
+                                </a>
+                            @else
+                                <a
+                                    href="{{ route('login') }}"
+                                    class="border-b-[1px] border-[#6A9AB0] pb-8 w-[12rem] text-lg font-normal my-4 hover:px-2 transition-all">
+                                    Log in
+                                </a>
+
+                        
+                            @endauth
+                    
+                    @endif
+    
+    
+    
                        
                 </section>
 

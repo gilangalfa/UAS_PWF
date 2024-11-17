@@ -28,7 +28,10 @@ class WorkshopFactory extends Factory
             'description' => fake()->text(200),
             'max_participants' => fake()->randomNumber(3, true),
             'current_participants' => fake()->randomNumber(2, true),
-            'held_date' => fake()->dateTime(),
+            'open_until' => fake()->dateTime(),
+            'start_time' => fake()->dateTime(),
+            'end_time' => fake()->dateTime(),
+            'venue' => 'Kabupaten '.fake()->sentence(1),
 
             'speaker_id' => Speaker::factory(),
             'status_id' => EventStatus::factory(),

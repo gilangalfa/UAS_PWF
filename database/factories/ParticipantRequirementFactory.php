@@ -22,7 +22,7 @@ class ParticipantRequirementFactory extends Factory
         return [
             //
             
-            'requirement' => fake()->sentence(15),
+            'name' => fake()->sentence(10),
 
             'seminar_id' => Seminar::factory(),
             'workshop_id' => Workshop::factory(),

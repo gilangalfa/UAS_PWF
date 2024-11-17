@@ -12,7 +12,7 @@ class ParticipantRequirement extends Model
     //
     protected $table = 'participant_requirements';
     protected $fillable = [
-        'requirement',
+        'name',
     ];
 
     public function seminar(): BelongsTo 
