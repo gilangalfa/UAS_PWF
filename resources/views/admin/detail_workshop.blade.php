@@ -36,7 +36,7 @@
             <section>
                 <h2 class="text-3xl">Deskripsi</h2>
                 <img class="my-2" src="{{ asset('assets/img/event.jpg') }}" alt="">
-                <p class="font-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis facere quisquam harum veniam illo consectetur est. Sequi fuga iure natus dolorem ut, accusamus odit eaque labore eveniet temporibus iusto. Necessitatibus nam suscipit veniam perspiciatis dolorum ipsa rerum? Ipsum dolor ullam asperiores sint totam iure necessitatibus sit. Suscipit cum veniam incidunt ea eos eveniet, dolorem ducimus facilis molestias, sunt, sequi sint architecto quibusdam aut qui quas voluptatibus odio fugit fugiat laboriosam?</p>
+                <p class="font-light">{{ $workshop->description }}<</p>
             </section>
 
             <section>
@@ -82,10 +82,11 @@
 
     {{-- Table --}}
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12 mb-12">
-        <div class="bg-white dark:bg-gray-800 relative overflow-hidden shadow-lg border-2">
+        <div class="bg-white dark:bg-white relative overflow-hidden shadow-md border-[1px]">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4 ">
 
-                <h3 class="w-full text-white text-3xl font-semibold ">Tabel Peserta</h3>
+                <h3 class="w-full text-[#AD88C6] text-3xl font-semibold ml-4 ">Daftar Peserta</h3>
+
                 <form class="w-full flex items-center ">
                     <label for="simple-search" class="sr-only">Search</label>
                     <div class="relative w-full">
@@ -94,19 +95,16 @@
                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search" required="">
+                        <input type="search" id="search" name="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-white dark:focus:outline-none dark:focus:ring-0 dark:placeholder-gray-400 dark:text-black dark:focus:border-primary-500 hover:bg-slate-50 focus:outline-none transition-all" placeholder="Cari nama peserta" autocomplete="off">
                     </div>
                 </form>
-                
-                <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                    
-                    
-                </div>
+           
             </div>
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto "></div>
+            <div class="border-b-[1px] border-gray-300 w-11/12 m-auto pb-2 mb-4"></div>
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-[#E1AFD1] uppercase bg-gray-50 dark:bg-white dark:text-[#AD88C6]">
                         <tr>
                             <th scope="col" class="px-4 py-3">Nama</th>
                             <th scope="col" class="px-4 py-3">Asal</th>
@@ -120,47 +118,55 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($participants as $participant)
+                        @forelse ($participants as $participant)
 
-                            <tr class="border-b dark:border-gray-700">
-                                <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$participant->name}}</th>
-                                <td class="px-4 py-3">{{$participant->location}}</td>
-                                <td class="px-4 py-3">{{$participant->educational_level}}</td>
-                                <td class="px-4 py-3">{{$participant->email}}</td>
-                                <td class="px-4 py-3">{{$participant->phone_number}}</td>
-                                <td class="px-4 py-3 flex items-center justify-center">
-                                    <a href="#" class="block py-2 px-4 w-20 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition-all">Edit</a>
-                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition-all">Delete</a>
+                            <tr class="">
+                                <td scope="row" class="px-4 py-3 text-gray-900 whitespace-nowrap dark:text-black">{{$participant->name}}</td>
+                                <td class="px-4 py-3 text-gray-700">{{$participant->location}}</td>
+                                <td class="px-4 py-3 text-gray-700">{{$participant->educational_level}}</td>
+                                <td class="px-4 py-3 text-gray-700">{{$participant->email}}</td>
+                                <td class="px-4 py-3 text-gray-700">{{$participant->phone_number}}</td>
+                                <td class="px-4 py-3 text-gray-700 flex items-center justify-center">
+                                    {{-- <a href="#" class="block py-2 px-4 w-20 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition-all">Edit</a> --}}
                                     
-                                    {{-- <div class=" z-10 w-44 bg-white  shadow dark:bg-gray-700 dark:divide-gray-600 flex">
-                                        <a href="#" class="block py-2 px-4 w-20 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
-                                        
-                                    </div> --}}
+                                    
+                                    <form  action="{{ $workshop->id }}/delete-participant/{{ $participant->id }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition-all">Delete registration</button>
+                                    </form>
+
+                                    
                                 </td>
-                            </tr>
-                            
-                        @endforeach
-                        <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iMac 27&#34;</th>
-                            <td class="px-4 py-3">PC</td>
-                            <td class="px-4 py-3">Apple</td>
-                            <td class="px-4 py-3">300</td>
-                            <td class="px-4 py-3">$2999</td>
-                            <td class="px-4 py-3 flex items-center justify-center">
-                                <a href="#" class="block py-2 px-4 w-20 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition-all">Edit</a>
-                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white transition-all">Delete</a>
                                 
-                                {{-- <div class=" z-10 w-44 bg-white  shadow dark:bg-gray-700 dark:divide-gray-600 flex">
-                                    <a href="#" class="block py-2 px-4 w-20 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
-                                    
-                                </div> --}}
-                            </td>
-                        </tr>
+                            </tr>
+
+            
+                        
                     </tbody>
+
+                    @empty
+
+                            
+                            <table class="px-4 py-3 text-gray-700 my-1 w-full">
+                                <tbody>
+                                    <tr>
+                                        <td><div class="border-[1px] border-gray-300 w-full px-20"></div></td>
+                                        <td><p class="px-4 py-3 text-center text-lg font-semibold text-gray-500">Belum ada pendaftar aowkokowkkw</p></td>
+                                        <td><div class="border-[1px] border-gray-300 w-full px-20"></div></td>
+                                    </tr>
+                                </tbody>
+                                
+                                
+                            </table>
+                        
+                        
+                          
+                        @endforelse
                     
                 </table>
+
+                
             </div>
 
             

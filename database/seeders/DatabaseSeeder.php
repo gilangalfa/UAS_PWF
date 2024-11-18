@@ -65,10 +65,12 @@ class DatabaseSeeder extends Seeder
 
             Seminar::factory(2)->create(),
             Workshop::factory(1)->create(),
+            
 
             Seminar::factory(3)->recycle([
                 EventStatus::factory(2)->create(),
                 EventCategory::factory(2)->create(),
+       
             ])->create(),
 
             Workshop::factory(2)->recycle([

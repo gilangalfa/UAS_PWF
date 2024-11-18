@@ -21,7 +21,7 @@ class Participant extends Model
     ];
     // protected $primaryKey = 'participant_id';
 
-    public function registration(): HasMany
+    public function registrations(): HasMany
     {
         return $this->hasMany(Registration::class);
     }

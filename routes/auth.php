@@ -66,4 +66,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/workshops', [AuthenticatedSessionController::class, 'getAllWorkshops']);
     Route::get('admin/seminar/{seminar}', [AuthenticatedSessionController::class, 'getSeminar'])->name('admin-seminar');
     Route::get('admin/workshop/{workshop}', [AuthenticatedSessionController::class, 'getWorkshop'])->name('admin-workshop');
+    Route::delete('admin/seminar/{seminar}/delete-participant/{participant}', [AuthenticatedSessionController::class, 'delSeminarParticipant'])->name('admin-seminar-delete-participant');
+    Route::delete('admin/workshop/{workshop}/delete-participant/{participant}', [AuthenticatedSessionController::class, 'delWorkshopParticipant'])->name('admin-workshop-delete-participant');
 });

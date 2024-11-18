@@ -16,7 +16,7 @@
 
                         {{-- Link to individual event --}}
                         <a href="{{route('admin-workshop', ['workshop' => $workshop]) }}">
-                            <h5 class="mb-1 text-3xl font-md tracking-tight text-[#3A6D8C] hover:underline">{{ $workshop->name }}</h5>
+                            <h5 class="mb-1 text-3xl font-md tracking-tight text-[#AD88C6] hover:underline">{{ $workshop->name }}</h5>
                         </a>
 
                         <p class="mb-3 text-sm font-normal text-gray-700">Diselenggarakan oleh: Komunitas Pangkalan Besi</p>

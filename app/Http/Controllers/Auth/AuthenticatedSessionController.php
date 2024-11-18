@@ -54,8 +54,7 @@ class AuthenticatedSessionController extends Controller
             $participants = $participants->filter(function ($participant) {
                 return stripos($participant->name, request('search')) !== false;
             });
-        }
-        
+        }  
 
         return view('admin.detail_seminar', [
             // 'data' => $data,
@@ -113,6 +112,22 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
         return redirect()->intended(route('admin', absolute: false));
+    }
+
+    public function delSeminarParticipant(Seminar $seminar, Participant $participant) 
+    {
+        $participant->registrations()->delete();
+        $participant->delete();
+
+        return to_route('admin-seminar', ['seminar'=>$seminar]);
+    }
+
+    public function delWorkshopParticipant(Workshop $workshop, Participant $participant) 
+    {
+        $participant->registrations()->delete();
+        $participant->delete();
+
+        return to_route('admin-workshop', ['workshop'=>$workshop]);
     }
 
     /**

@@ -38,17 +38,19 @@
             <section>
                 <h2 class="text-3xl">Deskripsi</h2>
                 <img class="my-2" src="{{ asset('assets/img/event.jpg') }}" alt="">
-                <p class="font-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis facere quisquam harum veniam illo consectetur est. Sequi fuga iure natus dolorem ut, accusamus odit eaque labore eveniet temporibus iusto. Necessitatibus nam suscipit veniam perspiciatis dolorum ipsa rerum? Ipsum dolor ullam asperiores sint totam iure necessitatibus sit. Suscipit cum veniam incidunt ea eos eveniet, dolorem ducimus facilis molestias, sunt, sequi sint architecto quibusdam aut qui quas voluptatibus odio fugit fugiat laboriosam?</p>
+                <p class="font-light">{{ $workshop->description }}<</p>
             </section>
 
             <section>
                 <h2 class="text-3xl mb-4">Peserta yang bisa mendaftar</h2>
                 <ul class="list-disc px-8 font-light">
+
                     @forelse ($requirements as $requirement)
                         <li>{{$requirement->name}}</li>
                     @empty
                         <li>Tidak membutuhkan persyaratan</li>
                     @endforelse
+
                 </ul>
             </section>   
         </section>

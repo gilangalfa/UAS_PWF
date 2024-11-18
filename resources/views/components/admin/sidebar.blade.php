@@ -9,7 +9,7 @@
                     
 
                 
-                    <a href="{{ url('admin/') }}"><h3 class="border-y-[1px] border-[#6A9AB0] py-8 w-[12rem] text-lg font-normal my-4 hover:px-2 transition-all">Back</h3></a>
+                    <a href="{{ url('admin/') }}"><h3 class="border-y-[1px] border-[#E1AFD1] py-8 w-[12rem] text-lg font-normal my-4 hover:px-2 transition-all">Back</h3></a>
                        
                 </section>
 
@@ -17,7 +17,7 @@
             
 
             <section class="flex flex-col gap-2 px-8">
-                <div class="bg-[#6A9AB0] w-[16rem] h-[1px] self-center"></div>
+                <div class="bg-gray-400 w-[16rem] h-[1px] self-center"></div>
                 <h3 class="text-2xl font-normal my-2">From Kelompok 5</h3>
 
                 <ul class="px-2 pb-2">
@@ -26,7 +26,7 @@
                     <li class="text-sm">Adli Imam Suryadin</li>
                 </ul>
              
-                <div class="bg-[#6A9AB0] w-[16rem] h-[1px] mb-2 self-center"></div>
+                <div class="bg-gray-400 w-[16rem] h-[1px] mb-2 self-center"></div>
                 
                
                 <a href=""><h3 class="text-lg font-normal pb-8 text-center">Web Framework, Sistem Informasi</h3></a>
